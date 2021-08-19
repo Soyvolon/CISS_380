@@ -3,4 +3,4 @@
 
 Work for CISS 380 at GWU by Andrew Bounds.
 
-All software is unliscensed and free to use. See the LISENCE for more information.
+All software is unlicensed and free to use. See the LICENSE for more information.
