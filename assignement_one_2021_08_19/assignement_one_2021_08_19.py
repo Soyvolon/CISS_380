@@ -1,3 +1,7 @@
+"""Recursion problems for HW assigned on Thu Aug 19 2021
+
+@author: Andrew Bounds
+"""
 
 def main():
     selection = input("Select operation (input the number):\n\n" + 
@@ -23,12 +27,11 @@ def caps_main():
 
     print("The new list: {r}".format(r = res))
 
-def capitialize_words(words, index: int = 0, res = []):
-    if index < len(words):
-        res.append(words[index].capitalize())
-        return capitialize_words(words, index + 1, res)
+def capitialize_words(words):
+    if len(words) > 0:
+        return [words[0].capitalize()] + capitialize_words(words[1:])
     else:
-        return res
+        return []
 
 def sum_main():
     selection = input("\n\n---- INTEGER SUM ----\n\nEnter an integer above 0:\n")
@@ -37,9 +40,9 @@ def sum_main():
     while not res or val <= 0:
         val, res = try_parse_int(input("An integer was not entered. Please enter a numberical value above 0:\n"))
     
-    sum = sum_values(val)
+    output = sum_values(val)
 
-    print("The sum of all values below {s} and above 0 is: {res}".format(s = val - 1, res = sum))
+    print("The sum of all values below {s} and above 0 is: {res}".format(s = val - 1, res = output))
 
 def sum_values(current: int, sum: int = 0) -> int:
     if current < 0:
