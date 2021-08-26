@@ -20,7 +20,7 @@ def main():
         gcd_main()
 
 def flatten_main():
-    data = [1, 2, [3, 4, [5, 6, [7]]]];
+    data = [1, 2, [3, 4, [5, 6, [7]]]]
     output = flatten_list(data)
     print("Turned {a} into {b}".format(a = data, b = output))
 

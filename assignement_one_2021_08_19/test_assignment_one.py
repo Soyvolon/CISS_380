@@ -1,5 +1,5 @@
 import unittest
-import assignement_one_2021_08_19 as a1
+from . import assignement_one_2021_08_19 as a1
 
 class TestAssignmentOne(unittest.TestCase):
     

@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. sln", "1. sln", "{93DDCA
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "assignement_two_2021_08_24", "assignement_two_2021_08_24\assignement_two_2021_08_24.pyproj", "{136A25FF-584C-4159-A6E9-07A3BC58BE88}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "assignement_three_2021_08_26", "assignement_three_2021_08_26\assignement_three_2021_08_26.pyproj", "{CD1AB106-1BD4-41BD-85C9-4A5FC8260359}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,8 @@ Global
 		{B7C2CEAA-8572-4F87-998B-FF23A1191909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{136A25FF-584C-4159-A6E9-07A3BC58BE88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{136A25FF-584C-4159-A6E9-07A3BC58BE88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD1AB106-1BD4-41BD-85C9-4A5FC8260359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD1AB106-1BD4-41BD-85C9-4A5FC8260359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

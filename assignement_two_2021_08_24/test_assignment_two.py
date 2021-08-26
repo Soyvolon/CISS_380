@@ -1,5 +1,5 @@
 import unittest
-import assignement_two_2021_08_24 as a2
+from . import assignement_two_2021_08_24 as a2
 
 class TestAssignmentTwo(unittest.TestCase):
     def test_flatten(self):
@@ -11,7 +11,7 @@ class TestAssignmentTwo(unittest.TestCase):
                [2, 5, 7, 9],
                [9, 9, 10, 11],
                []]
-
+        
         for i in range(0, len(test)):
             self.assertEqual(a2.flatten_list(test[i]), res[i])
 
