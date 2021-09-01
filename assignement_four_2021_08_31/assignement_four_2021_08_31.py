@@ -11,42 +11,52 @@ def main():
     test_data = gen_test_data()
 
     output = """
-|Function|Time (s)|Data Size (n)|Time Complexity|
-|--------|----|---------|---------------|"""
-
+|Function|Time (s)|Data Size (n)|Batch Size (runs)|Time Complexity|Size Complexity|
+|--------|--------|-------------|-----------------|---------------|---------------|"""
+    data_max = 10000
     for data in test_data:
-        iter_start = time.time()
-        invert(data)
-        iter_end = time.time() - iter_start
+
+        runs = data_max
+        if runs <= 0:
+            runs = 1
+        iter_end = 0
+        for x in range(runs):
+            iter_start = time.time()
+            invert(data)
+            iter_end += time.time() - iter_start
 
         output += """
-|{a}|{b}|{c}|{d}|""".format(a = "Iter Reverse", b = iter_end, c = len(data), d = "O(n)")
+|{a}|{b}|{c}|{d}|{e}|{f}|""".format(a = "Iter Reverse", b = iter_end, c = len(data), d = runs, e = "O(n)", f = "1")
 
         try:
-            r_start = time.time()
-            invert_r(data)
-            r_end = time.time() - r_start
+            r_end = 0
+            for x in range(runs):
+                r_start = time.time()
+                invert_r(data)
+                r_end += time.time() - r_start
 
             output += """
-|{a}|{b}|{c}|{d}|""".format(a = "Recursive Reverse", b = r_end, c = len(data), d = "O(n)")
+|{a}|{b}|{c}|{d}|{e}|{f}|""".format(a = "Recursive Reverse", b = r_end, c = len(data), d = runs, e = "O(n)", f = "n")
         except:
             r_end = time.time() - r_start
             output += """
-|{a}|{b}|{c}|{d}|""".format(a = "Recursive Reverse", b = r_end, c = len(data), d = "ERRORED")
+|{a}|{b}|{c}|{d}|{e}|{f}|""".format(a = "Recursive Reverse", b = r_end, c = len(data), d = "ERRORED", e = "ERRORED", f = "n")
 
-        internal_start = time.time()
-        data.reverse()
-        internal_end = time.time() - internal_start
+        internal_end = 0
+        for x in range(runs):
+            internal_start = time.time()
+            data.reverse()
+            internal_end += time.time() - internal_start
 
         output += """
-|{a}|{b}|{c}|{d}|""".format(a = "Python Reverse", b = internal_end, c = len(data), d = "O(n)")
+|{a}|{b}|{c}|{d}|{e}|{f}|""".format(a = "Python Reverse", b = internal_end, c = len(data), d = runs, e = "O(n)", f = "1")
 
     with open("output.md", "wt") as file:
         file.write(output)
 
     print("Output written to output.md")
 
-def gen_test_data(test_sets = 1000, set_size_base = 100):
+def gen_test_data(test_sets = 100, set_size_base = 50):
     data = []
     for m in range(1, test_sets + 1):
         data.append([])
