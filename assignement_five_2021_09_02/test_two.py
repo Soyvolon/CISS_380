@@ -4,11 +4,11 @@ import assignement_five_2021_09_02 as a5
 def main():
     gen = a5.PermGenerator()
     data = [2500, 5000, 10000, 20000, 40000, 80000]
-    output = [[], [], []]
+    output = [[]]
     tester = []
-    tester.append(test.TestThreader(data, 10, gen.fill_perm_one, output[0]))
-    tester.append(test.TestThreader(data, 10, gen.fill_perm_two, output[1]))
-    tester.append(test.TestThreader(data, 10, gen.fill_perm_three, output[2]))
+    #tester.append(test.TestThreader(data, 10, gen.fill_perm_one, output[0]))
+    tester.append(test.TestThreader(data, 10, gen.fill_perm_two, output[0]))
+    #tester.append(test.TestThreader(data, 10, gen.fill_perm_three, output[2]))
     
     for i in tester:
         i.start()
@@ -24,11 +24,9 @@ def main():
 
     print(output)
 
-    dataString = "Test One Results"
-    c = 1
+    dataString = "Test Two Results"
     for s in output:
-        dataString += "\n### Algorithm {a}\n".format(a = c)
-        c += 1
+        dataString += "\n### Algorithm 2\n"
         dataString += "| Size (n) | Time (s) |\n"
         dataString += "|----------|----------|\n"
         for i in s:

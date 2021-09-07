@@ -10,22 +10,26 @@ class PermGenerator():
             self.__rand = random.Random(seed)
 
     def fill_perm_one(self, size: int) -> list:
+        """O(n^2 + n)"""
         output = []
-        for i in range(size):
+        for i in range(size): # n
             val = -1
             while val < 0 or val in output:
+                # from 1 to infinite for the value (avg could be: n?)
+                # from 1 to n for the in statement (avg: n / 2?)
                 val = self.__rand.randint(1, size)
             output.append(val)
         return output
 
     def fill_perm_two(self, size: int) -> list:
+        """O(n^2 + n)"""
         output = []
         size_range = range(size)
         # needs to be one item larger
-        used = [False for x in range(size + 1)]
-        for i in size_range:
+        used = [False for x in range(size + 1)] # n
+        for i in size_range: # n
             val = -1
-            while val < 0:
+            while val < 0: # from 1 to infinite (avg could be: n)
                 tmp = self.__rand.randint(1, size)
                 try:
                     if(used[tmp]):
@@ -39,10 +43,11 @@ class PermGenerator():
         return output
     
     def fill_perm_three(self, size: int) -> list:
+        """O(2n)"""
         size_range = range(size)
         rand_size = size - 1
-        output = [x + 1 for x in size_range]
-        for i in size_range:
+        output = [x + 1 for x in size_range] # n
+        for i in size_range: # n
             other = self.__rand.randint(1, rand_size)
             output[i], output[other] = output[other], output[i]
         return output

@@ -2,6 +2,8 @@ import assignement_five_2021_09_02 as a5
 import threading
 import time
 
+# I offically hate python async
+
 class TestThreader(threading.Thread):
     def __init__(self, test_set, runs, method, result_cache):
         threading.Thread.__init__(self)
