@@ -140,18 +140,18 @@ More information about runtimes can be found in the `test_one_res_all_algorithms
 
 ### Algorithm 1
 
-| Expected | Best Case | Worst Case | Average |
-|----------|-----------|------------|---------|
-| `O(n^2)` | `O(n)` | `O()` | `O()` |
+| Expected | Best Case | Worst Case | Average  |
+|----------|-----------|------------|----------|
+| `O(n^2)` | `O(n)`    | `O(n^2)`   | `O(n^2)` |
 
 ### Algorithm 2
 
-| Expected | Best Case | Worst Case | Average |
-|----------|-----------|------------|---------|
-| `O(n^2)` | `O(n)` | `O()` | `O()` |
+| Expected | Best Case | Worst Case | Average  |
+|----------|-----------|------------|----------|
+| `O(n^2)` | `O(n)`    | `O(n^2)`   | `O(n^2)` |
 
 ### Algorithm 3
 
 | Expected | Best Case | Worst Case | Average |
 |----------|-----------|------------|---------|
-| `O(n)` | `O(n)` | `O(n)` | `O(n)` |
+| `O(n)`   | `O(n)`    | `O(n)`     | `O(n)`  |

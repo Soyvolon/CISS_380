@@ -5,8 +5,8 @@ For `assignement_four_2021_08_31.py`
 | Function         | Time Complexity | Size Complexity |
 |------------------|-----------------|-----------------|
 | Custom Recursive | O(n)            | n               |
-| Custom Iterative | O(n)            | 1               |
-| Python Builtin   | O(n)            | 1               |
+| Custom Iterative | O(n)            | n               |
+| Python Builtin   | O(n)            | n               |
 
 The Custom Recursive function also has the detriment of failing
 once a list of items lands between 1950 and 2000 items, on top
