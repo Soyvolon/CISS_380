@@ -1,0 +1,23 @@
+{
+    "months": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+    ],
+    "days": {
+        "min": 1,
+        "max": 31
+    },
+    "years": {
+        "min": 0,
+        "max": 2022
+    }
+}

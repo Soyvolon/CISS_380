@@ -1,0 +1,32 @@
+[
+    {
+        "make": "Mazda",
+        "model": "2013",
+        "mileage": 150000,
+        "mpg": 45
+    },
+    {
+        "make": "Toyota",
+        "model": "Camry",
+        "mileage": 100000,
+        "mpg": 32
+    },
+    {
+        "make": "Ford",
+        "model": "F150",
+        "mileage": 220431,
+        "mpg": 20
+    },
+    {
+        "make": "Ford",
+        "model": "Edge",
+        "mileage": 0,
+        "mpg": 36
+    },
+    {
+        "make": "Saturn",
+        "model": "Vue",
+        "mileage": 129562,
+        "mpg": 22
+    }
+]
