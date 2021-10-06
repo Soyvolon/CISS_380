@@ -28,6 +28,10 @@ class IntArray(Array):
         self._validate_int(fill)
         super().__init__(capacity, fill)
 
+    def insert(self, index, val: int):
+        self._validate_int(val)
+        super().insert(index, val)
+
     def _validate_int(self, obj: object):
         if not isinstance(obj, int):
             raise ValueError("Value must be of type int")

@@ -147,7 +147,10 @@ class TestIntArray(unittest.TestCase):
     def test_non_int_res_fail_exp(self):
         with self.assertRaises(ValueError):
             a1 = a10.IntArray(2)
-            
+            a1.insert(0, 1)
+            a1.insert(1, 2)
+
+            a1 ** -1
 
     def test_non_int_fail_init(self):
         with self.assertRaises(ValueError):
