@@ -105,6 +105,8 @@ def print_double_tree_display(head: TwoWayNode):
         print("{a} < {b} > {c}".format(a = p, b = cur.data, c = n))
         cur = cur.next
 
+# AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# deprecated.
 def bubble_single_y(head: Node):
     sorted = True
     first = False
@@ -117,12 +119,13 @@ def bubble_single_y(head: Node):
                 next = next.next
                 c += 1
         
-                
+        
 
 
         first = True
 
-
+# ahhhhhhhhhhhhhhhhhh
+# deprecated.
 def bubble_single(head: Node):
     cur = head
     c = 0
@@ -143,7 +146,8 @@ def bubble_single(head: Node):
         cur = cur.next
         c += 1
 
-
+# ahhhhhhhhhhhhhhh
+# deprecated.
 def bubble_single_x(head: Node):
     cur = head
     pos = 0
@@ -167,44 +171,105 @@ def bubble_single_x(head: Node):
         cur = cur.next
         pos += 1
 
-def double_bubble(head: TwoWayNode):
-    cur = head
-    while isinstance(cur, TwoWayNode):
-        jump = cur.next
-        if not isinstance(jump, Node):
-            break
+# The sort needs to return a new Node head
+# in the event the head changes - so we can't
+# possibly do an in place sort without potentially
+# losing data.
+def bubble_sort_mod(head: Node) -> Node:
+    host = head
+    prev = None
+    while isinstance(host, Node):
+        c = 0
+        cur = host
+        next = cur.next
+        while isinstance(next, Node):
+            if cur.data > next.data:
+                tmp = next.next
+                if isinstance(prev, Node):
+                    prev.next = next
+                    next.next = cur
+                    cur.next = tmp
+                else:
+                    head = next
+                    head.next = cur
+                    cur.next = tmp
 
-        jumpC = -1
-        while cur.data < jump.data:
-            tmp = jump.previous
-            if type(tmp) == Node:
-                jump = tmp
-                jumpC = 0
+                prev = None
+                cur = head
+                next = cur.next
             else:
-                jumpC = 1
-                break
-        if jumpC >= 0:
-            dat = cur.data
-            cur, dmp = pop(0, cur)
-            jump = insert(dat, jumpC, jump)
-        cur = cur.next
+                prev = cur
+                cur = next
+                next = cur.next    
+
+            c += 1
+        prev = host
+        host = host.next
+
+    return head
+# again - need to be able to return a new head node
+# in the event the head changes.
+def double_bubble(head: TwoWayNode) -> TwoWayNode:
+    host = head
+    while isinstance(host, TwoWayNode):
+        c = 0
+        cur = host
+        next = cur.next
+        while isinstance(next, TwoWayNode):
+            if cur.data > next.data:
+                tmp = next.next
+                if isinstance(cur.previous, TwoWayNode):
+                    cur.previous.next = next
+                    next.previous = cur.previous
+
+                    next.next = cur
+                    cur.previous = next
+
+                    cur.next = tmp
+                    if isinstance(tmp, TwoWayNode):
+                        tmp.previous = cur
+                else:
+                    head = next
+                    head.previous = None
+
+                    head.next = cur
+                    cur.previous = head
+
+                    cur.next = tmp
+                    if isinstance(tmp, TwoWayNode):
+                        tmp.previous = cur
+
+                cur = head
+                next = cur.next
+            else:
+                cur = next
+                next = cur.next    
+
+            c += 1
+        host = host.next
+
+    return head
 
 def main():
     end = Node(1)
     two = Node(3, end)
-    head = Node(2, two)
+    three = Node(1, two)
+    four = Node(5, three)
+    head = Node(2, four)
 
-    print_node_tree(head)
-    print()
-    bubble_single(head)
-    print_node_tree(head)
-
-    # two = make_two_way(head)
-
-    # print_double_tree_display(two)
-    # double_bubble(two)
+    # print_node_tree(head)
     # print()
-    # print_double_tree_display(two)
+    # head = bubble_sort_mod(head)
+    # print_node_tree(head)
+
+    # print("------")
+
+    two = make_two_way(head)
+
+    print_double_tree_display(two)
+    two = double_bubble(two)
+    print()
+    print_double_tree_display(two)
 
     # print(length(head))
     # print("------")
