@@ -4,6 +4,8 @@
 
 from doubly_linked_bag import DoublyLinkedBag
 
+# is a subcalss of DoublyLinkedBag, which makes it
+# a subclass of DoublyLinkedBag's parent - AbstractBag
 class DoublyLinkedSet(DoublyLinkedBag):
     def __init__(self, sourceCollection = None):
         super().__init__(sourceCollection)
