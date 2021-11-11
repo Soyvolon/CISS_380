@@ -2,11 +2,11 @@ from abc import ABC, abstractmethod
 from typing import Collection, Iterator
 
 class AbstractStack(ABC):
-    @abstractmethod
     def __init__(self, sourceCollection = None):
         self.size = 0
-        for x in sourceCollection:
-            self.push(x)
+        if sourceCollection:
+            for x in sourceCollection:
+                self.push(x)
     
     @abstractmethod
     def __iter__(self) -> Iterator:

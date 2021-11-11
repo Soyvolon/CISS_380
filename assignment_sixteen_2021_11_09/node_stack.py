@@ -6,7 +6,7 @@ class NodeStack(AbstractStack):
     def __init__(self, sourceCollection = None):
         self.items = None
 
-        super().__init__(self, sourceCollection)
+        AbstractStack.__init__(self, sourceCollection)
 
     def __iter__(self) -> Iterator:
         def visitNodes(node: Node):

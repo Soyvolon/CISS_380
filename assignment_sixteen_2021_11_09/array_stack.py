@@ -8,7 +8,7 @@ class ArrayStack(AbstractStack):
     def __init__(self, sourceCollection = None):
         self.items = Array(self.DEFAULT_CAPACITY)
         
-        super().__init__(sourceCollection)
+        AbstractStack.__init__(sourceCollection)
     
     def __iter__(self) -> Iterator:
         """Iterate through the stack.
@@ -29,6 +29,9 @@ class ArrayStack(AbstractStack):
         Returns:
             object: The item at the top of the stack.
         """
+        if self.size == 0:
+            raise KeyError("Stack is emtpy")
+        
         return self.items[self.size - 1]
 
     def clear(self) -> None:
