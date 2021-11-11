@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Iterator
+from typing import Collection, Iterator
 
 class AbstractStack(ABC):
     @abstractmethod
@@ -57,12 +57,35 @@ class AbstractStack(ABC):
         pass
 
     @abstractmethod
-    def isEmpty(self) -> bool:
-        """Get if the stack is empty.
-
-        Returns:
-            bool: True if the stack is empty, false if not.
-        """
+    def __len__(self):
         pass
+    
+    def __add__(self, o: object):
+        if isinstance(o, AbstractStack):
+            res = type(self)()
+            for x in self:
+                res.push(x)
+            for x in o:
+                res.push(o)
+                
+            return res
+        raise TypeError("Can only add two abstract stacks.")
+    
+    def __eq__(self, o: object):
+        if isinstance(o, AbstractStack):
+            if o.size == self.size:
+                other = iter(o)
+                for x in self:
+                    if x != next(other):
+                        return False
+                return True
+            else:
+                return False
+        return False
 
+    def isEmpty(self) -> bool:
+        return self.size == 0
+    
+    def __str__(self):
+        return "{" + map(str, self) + "}"
     

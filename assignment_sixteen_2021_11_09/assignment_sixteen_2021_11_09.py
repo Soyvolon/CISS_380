@@ -18,6 +18,9 @@
 # postfix:  a b c * +
 # prefix:   + * b c a
 
+# Assume infix is correct.
+# use math symbols as per the link: (+-*/^)
+
 def main():
     pass
 
