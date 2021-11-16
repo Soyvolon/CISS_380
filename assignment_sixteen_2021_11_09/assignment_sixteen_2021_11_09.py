@@ -63,6 +63,9 @@ def convert_infix(infix: str) -> str:
                     while weight < ops.get(p):
                         exp += stack.pop()
                         p = stack.peek()
+                        
+                        if p == ')':
+                            break
                     stack.push(c)
             except KeyError:
                 # no data to peek!
