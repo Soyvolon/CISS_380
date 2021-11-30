@@ -17,7 +17,10 @@ class MarketModel(object):
         for i in range(ammountOfRegisters):
             self.cashiers.append(Cashier())
             
-        self.ticksPerSecond = ticksPerSecond
+        if ticksPerSecond != 0:
+            self.sleepTimer = 1 / ticksPerSecond
+        else:
+            self.sleepTimer = None
         
     def runSimulation(self):
         """Run the clock for n ticks."""
@@ -63,8 +66,8 @@ class MarketModel(object):
             self.display_simulation()
             
             # delay the execution of ticks for readable output.
-            if self.ticksPerSecond != 0:
-                sleep(1 / self.ticksPerSecond)
+            if self.sleepTimer:
+                sleep(self.sleepTimer)
         
         print("--- SIMULATION END ---")
             
