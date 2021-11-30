@@ -30,3 +30,5 @@ class LinkedListIterator(object):
                 self.backingStore.size += 1
                 self.lastItemPos = None
             self.modCount += 1
+
+        
