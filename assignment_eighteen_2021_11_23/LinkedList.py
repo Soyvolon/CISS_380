@@ -5,10 +5,10 @@ from node import TwoWayNode
 class LinkedList(AbstractList):
     
     def __init__(self, sourceCollection = None):
-        self.head = TwoWayNode()
+        self.head : TwoWayNode = TwoWayNode()
         self.head.previous = self.head.next = self.head
 
-        AbstractList.__init__(sourceCollection)
+        AbstractList.__init__(self, sourceCollection)
 
     def insert(self, index: int, item: object) -> None:
         if index < 0: index = 0
@@ -18,7 +18,7 @@ class LinkedList(AbstractList):
         newNode = TwoWayNode(item, theNode.previous, theNode)
         theNode.previous.next = newNode
         theNode.previous = newNode
-        self.count += 1
+        self.size += 1
         self.incModCount()
 
     
@@ -30,7 +30,7 @@ class LinkedList(AbstractList):
         theNode.previous.next = theNode.next
         theNode.next.previous = theNode.previous
         theNode.previous = theNode.next = None
-        self.count -= 1
+        self.size -= 1
         self.incModCount()
 
     
@@ -57,7 +57,7 @@ class LinkedList(AbstractList):
         Returns:
             int: The physical length of the list.
         """
-        return self.count
+        return self.size
 
     
     def __iter__(self):

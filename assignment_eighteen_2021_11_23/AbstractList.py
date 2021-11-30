@@ -5,7 +5,7 @@ from typing import Iterator
 class AbstractList(ABC):
     def __init__(self, sourceCollection = None) -> None:
         self.modCount = 0
-        self.count = 0
+        self.size = 0
 
         if sourceCollection:
             for x in sourceCollection:
@@ -46,19 +46,20 @@ class AbstractList(ABC):
         self.pop(pos, item)
 
     def isEmpty(self) -> bool:
-        return self.count() == 0
+        return self.size() == 0
 
-    def count(self) -> int:
-        return self.count
+    def size(self) -> int:
+        return self.size
 
 
 
     def __str__(self) -> str:
-        return "{" + map(str, self) + "}"
+        val = list(map(str, self))
+        return "{" + ', '.join(val) + "}"
 
     def __eq__(self, o: object) -> bool:
         if type(self) != type(o): return False
-        if self.count() != o.count(): return False
+        if self.size() != o.count(): return False
         it = iter(o)
         for x in self:
             if x != next(it):
